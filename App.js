@@ -1,20 +1,25 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { useState } from 'react'
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import {HistoryContext} from './src/screens/HistoryScreen.jsx'
+import HistoryScreen from './src/screens/HistoryScreen.jsx'
+import MainScreen from './src/screens/MainScreen.jsx'
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    const [history, setHistory] = useState([])
+
+    return (
+        <HistoryContext.Provider value={{ history, setHistory }}>
+            <NavigationContainer>
+                <Stack.Navigator initialRouteName="Ínicio">
+                    <Stack.Screen name="Ínicio" component={MainScreen} options={{ headerShown: false }}/>
+                    <Stack.Screen name="Histórico" component={HistoryScreen} options={{ headerShown: false }}/>
+                </Stack.Navigator>
+            </NavigationContainer>
+        </HistoryContext.Provider>
+    )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+

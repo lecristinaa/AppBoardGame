@@ -1,22 +1,23 @@
-import { TouchableOpacity, Text, StyleSheet } from "react-native";
+import { TouchableOpacity, Text, StyleSheet } from "react-native"
 
 export default function DiceButton({dice, rollDice}){
     return( 
         <TouchableOpacity onPress={rollDice} style={styles.button}>
-            <Text> {dice} </Text>
+            <Text style={styles.text}> {dice} </Text>
         </TouchableOpacity>
     )
 }
 
 const styles = StyleSheet.create({
     button:{
-        width: '20%',
-        maxWidth: 72,
-        backgroundColor: 'blue',
-        borderWidth: 1,
-        borderRadius: 16,
-        flex: 1,
-        justifyContent: center,
-        alignItems: center
-    }
+        backgroundColor: '#000',
+        padding: 10,
+        borderRadius: 8,
+        width: 60,
+        alignItems: 'center',
+    },
+    text: {
+        color: '#fff',
+        fontSize: 18,
+    },
 })
