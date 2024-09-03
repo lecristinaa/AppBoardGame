@@ -14,10 +14,12 @@ export default function MainScreen() {
         setDiceResult((Math.randon() * 10).toFixed(0))
     }
 
+    
+
     return(
         <SafeAreaView>
             <View style={styles.header}>
-                <Text>{}</Text>
+                <Text>OI </Text>
                 <Text></Text>
             </View>
 
